@@ -40,86 +40,88 @@ const ProductPage = () => {
         <img src={prod.secondaryImage} alt={prod.altText} />
       </StyledImages>
 
-      <StyledHomeName>
-        <Link to='/'>
-          <button>HOME</button>
-        </Link>
-        <p>{prod.name}</p>
-      </StyledHomeName>
+      <DesktopRightSide>
+        <StyledHomeName>
+          <Link to='/'>
+            <button>HOME</button>
+          </Link>
+          <p>{prod.name}</p>
+        </StyledHomeName>
 
-      <StyledProductInfo>
-        <h3>{prod.name}</h3>
-        <h3>{prod.price}</h3>
-        <p>Parcele em {prod.installments} sem juros</p>
+        <StyledProductInfo>
+          <h3>{prod.name}</h3>
+          <h3>{prod.price}</h3>
+          <p>Parcele em {prod.installments} sem juros</p>
 
-        <p>TAMANHO</p>
+          <p>TAMANHO</p>
 
-        <SizeButtons>
-        {uniqueSizes.map(size => 
-          <SizeButton 
-            key={size}
-            onClick={() => setSelectedSize(size)}
-            disabled={!variants.some(variant => variant.size === size && variant.quantity > 0)}
-            $disabled={!variants.some(variant => variant.size === size && variant.quantity > 0)}
-            $size={size}
-            $selectedSize={selectedSize}
+          <SizeButtons>
+          {uniqueSizes.map(size => 
+            <SizeButton 
+              key={size}
+              onClick={() => setSelectedSize(size)}
+              disabled={!variants.some(variant => variant.size === size && variant.quantity > 0)}
+              $disabled={!variants.some(variant => variant.size === size && variant.quantity > 0)}
+              $size={size}
+              $selectedSize={selectedSize}
+            >
+              {size}
+            </SizeButton>
+          )}
+          </SizeButtons>
+
+          <p>COR</p>
+
+          <ColorButtons>
+          {variants
+              .filter(variant => variant.size === selectedSize)
+              .map(variant => (
+                <ColorButton 
+                  key={variant.color} 
+                  onClick={() => setSelectedColor(variant.color)}
+                  disabled={variant.quantity === 0}
+                  $disabled={variant.quantity === 0}
+                  $selectedColor={selectedColor}
+                  $variantColor={variant.color}
+                >
+                  {/* {variant.color} */}
+                </ColorButton>
+              ))
+          }
+          </ColorButtons>
+
+          <ProductsAvailableMsg>
+            {currentProduct.quantity > 1 
+            ? <p>Últimas {currentProduct.quantity} unidades disponíveis</p>
+            : currentProduct.quantity === 1
+            ? <p>Última unidade disponível</p>
+            : <p>Produto esgotado nesta cor</p>
+            }
+          </ProductsAvailableMsg>
+
+          <StyledForm>
+            <input 
+              type="number" 
+              value={userInputQuantity}
+              onChange={e => setUserInputQuantity(e.target.value)}
+              min={currentProduct.quantity === 0 ? 0 : 1}
+              max={currentProduct.quantity}
+            />
+          </StyledForm>
+
+          <CartButton
+            onClick={() => navigate('/cart')}
+            disabled={currentProduct.quantity === 0}
+            $disabled={currentProduct.quantity === 0}
           >
-            {size}
-          </SizeButton>
-        )}
-        </SizeButtons>
+            {currentProduct.quantity === 0
+              ? 'INDISPONÍVEL'
+              : 'ADICIONAR AO CARRINHO'
+            }
+          </CartButton>
 
-        <p>COR</p>
-
-        <ColorButtons>
-        {variants
-            .filter(variant => variant.size === selectedSize)
-            .map(variant => (
-              <ColorButton 
-                key={variant.color} 
-                onClick={() => setSelectedColor(variant.color)}
-                disabled={variant.quantity === 0}
-                $disabled={variant.quantity === 0}
-                $selectedColor={selectedColor}
-                $variantColor={variant.color}
-              >
-                {/* {variant.color} */}
-              </ColorButton>
-            ))
-        }
-        </ColorButtons>
-
-        <ProductsAvailableMsg>
-          {currentProduct.quantity > 1 
-          ? <p>Últimas {currentProduct.quantity} unidades disponíveis</p>
-          : currentProduct.quantity === 1
-          ? <p>Última unidade disponível</p>
-          : <p>Produto esgotado nesta cor</p>
-          }
-        </ProductsAvailableMsg>
-
-        <StyledForm>
-          <input 
-            type="number" 
-            value={userInputQuantity}
-            onChange={e => setUserInputQuantity(e.target.value)}
-            min={currentProduct.quantity === 0 ? 0 : 1}
-            max={currentProduct.quantity}
-          />
-        </StyledForm>
-
-        <CartButton
-          onClick={() => navigate('/cart')}
-          disabled={currentProduct.quantity === 0}
-          $disabled={currentProduct.quantity === 0}
-        >
-          {currentProduct.quantity === 0
-            ? 'INDISPONÍVEL'
-            : 'ADICIONAR AO CARRINHO'
-          }
-        </CartButton>
-
-      </StyledProductInfo>
+        </StyledProductInfo>
+      </DesktopRightSide>
     </OuterContainer>
   )
 }
@@ -131,6 +133,21 @@ const OuterContainer = styled.div`
   padding: 45px 20px 20px 20px;
   display: flex;
   flex-direction: column;
+
+  @media (min-width: 1000px) {
+    flex-direction: row;
+    gap: 50px;
+    padding: 45px 70px 20px 70px;
+  }
+`
+
+const DesktopRightSide = styled.div`
+  @media (min-width:1000px) {
+    width: 50%;
+    position: sticky;
+    top: 45px;
+    align-self: flex-start;
+  }
 `
 
 const StyledImages = styled.div`
@@ -143,6 +160,10 @@ const StyledImages = styled.div`
     width: 100%;
     height: auto;
   }
+
+  @media (min-width:1000px) {
+    width: 50%;
+  }
 `
 
 const StyledHomeName = styled.div`
@@ -152,17 +173,27 @@ const StyledHomeName = styled.div`
   a {
     all: unset;
     text-decoration: none;
+    display: flex;
   }
 
   button {
     all: unset;
     cursor: pointer;
+    font-size: 12px;
+  }
+
+  p {
+    font-size: 12px;
   }
 
   p::before {
     content: '/';
     padding-right: 5px;
     padding-left: 5px;
+  }
+
+  @media (min-width: 1000px) {
+    margin-top: 0;
   }
 `
 
