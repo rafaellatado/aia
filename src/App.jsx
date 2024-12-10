@@ -10,7 +10,7 @@ import ScrollTop from './ScrollTop'
 function App() {
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename='/aia'>
       <GlobalStyles />
       <NavBar />
 

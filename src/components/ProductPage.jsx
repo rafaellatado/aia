@@ -24,17 +24,6 @@ const ProductPage = () => {
   /* console.log(selectedSize);
   console.log(selectedColor); */
   const [userInputQuantity, setUserInputQuantity] = useState(1);
-
-/*- Se eu adicionar o código abaixo, toda vez que o usuário clica em um tamanho diferente de roupa, 
-    a cor selecionada será necessariamente a primeira cor. 
-  - Não faz sentido pra mim, já que vejo que a pessoa queira selecionar um tamanho diferente na mesma cor que já está selecionada.
-  - Da forma como está agora, se eu seleciono uma segunda cor e troco o tamanho da roupa, 
-    a cor selecionada no novo tamanho será a mesma cor que já estava selecionada.
-
-  useEffect(() => {
-    const firstVariant = variants.find(variant => variant.size === selectedSize);
-    setSelectedColor(firstVariant.color);
-  }, [selectedSize, variants]); */
   
   const currentProduct = variants.find(variant => variant.size === selectedSize && variant.color === selectedColor);
 
