@@ -453,7 +453,7 @@ Please change the parent <Route path="${c}"> to <Route path="${c==="/"?"*":`${c}
   @media (min-width: 1000px) {
     flex-direction: row;
     gap: 50px;
-    padding: 45px 70px 20px 70px;
+    /* padding: 45px 70px 20px 70px; */
   }
 `,Kg=O.div`
   @media (min-width:1000px) {
