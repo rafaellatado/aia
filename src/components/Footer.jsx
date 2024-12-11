@@ -10,18 +10,22 @@ const Footer = () => {
     <StyledContainer>
       <h1>AIA</h1>
 
-      <p>Cadastre-se no nosso newsletter</p>
-      <p>e fique por dentro de tudo que acontece na AIA</p>
+      <Newsletter>
+        <div>
+          <p>Cadastre-se no nosso newsletter</p>
+          <p>e fique por dentro de tudo que acontece na AIA</p>
+        </div>
 
-      <StyledForm>
-        <input 
-          type='email' 
-          placeholder='Email'
-          onChange={e => setEmail(e.target.value)}
-          required
-        />
-        <button>OK</button>
-      </StyledForm>
+        <StyledForm>
+          <input 
+            type='email' 
+            placeholder='Email'
+            onChange={e => setEmail(e.target.value)}
+            required
+          />
+          <button>OK</button>
+        </StyledForm>
+      </Newsletter>
 
       <StyledBottom>
         <div>
@@ -60,14 +64,20 @@ export default Footer;
 const StyledContainer = styled.div`
   margin: 100px 20px 20px 20px;
 
-  & p:nth-of-type(1) {
-    font-weight: 600;
-    margin-top: 30px;
-  }
-
   button {
     all: unset;
     cursor: pointer;
+  }
+
+/*   @media (min-width: 768px) {
+    margin: 100px 80px 20px 80px;
+  } */
+`
+
+const Newsletter = styled.div`
+  & p:nth-of-type(1) {
+    font-weight: 600;
+    margin-top: 30px;
   }
 
   h1 {
@@ -75,7 +85,8 @@ const StyledContainer = styled.div`
   }
 
   @media (min-width: 768px) {
-    margin: 100px 80px 20px 80px;
+  width: 45%;
+  margin-bottom: 40px;
   }
 `
 
@@ -83,12 +94,13 @@ const StyledForm = styled.form`
   border-bottom: 1px solid black;
   display: flex;
   justify-content: space-between;
-  padding: 0 10px 0 10px;
+  padding-left: 10px;
   margin-top: 30px;
 
   input {
     all: unset;
     flex-grow: 1;
+    width: 100%;
   }
 
   input::placeholder {
