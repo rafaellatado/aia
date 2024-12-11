@@ -137,7 +137,7 @@ const OuterContainer = styled.div`
   @media (min-width: 1000px) {
     flex-direction: row;
     gap: 50px;
-    padding: 45px 70px 20px 70px;
+    /* padding: 45px 70px 20px 70px; */
   }
 `
 
