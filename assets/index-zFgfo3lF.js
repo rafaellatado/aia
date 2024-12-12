@@ -444,7 +444,7 @@ Please change the parent <Route path="${c}"> to <Route path="${c==="/"?"*":`${c}
     opacity: 0;  
     transition: opacity 0.5s ease;
   }
-`,Vg=()=>g.jsxs(g.Fragment,{children:[g.jsx(Mg,{}),g.jsx(Bg,{})]}),qg=()=>{const e=Pa(),{state:t}=gt(),{prod:n}=t||{},r=n.variants,o=r.map(y=>y.size).filter((y,v,w)=>w.indexOf(y)===v).sort((y,v)=>y-v),i=r.find(y=>y.size===o[0]).color,[l,u]=S.useState(o[0]),[a,s]=S.useState(i),[h,m]=S.useState(1),d=r.find(y=>y.size===l&&y.color===a);return S.useEffect(()=>{m(d.quantity===0?0:1)},[l,a,d.quantity]),g.jsxs(Qg,{children:[g.jsxs(Yg,{children:[g.jsx("img",{src:n.primaryImage,alt:n.altText}),g.jsx("img",{src:n.secondaryImage,alt:n.altText})]}),g.jsxs(Kg,{children:[g.jsxs(Gg,{children:[g.jsx(sn,{to:"/",children:g.jsx("button",{children:"HOME"})}),g.jsx("p",{children:n.name})]}),g.jsxs(Xg,{children:[g.jsx("h3",{children:n.name}),g.jsx("h3",{children:n.price}),g.jsxs("p",{children:["Parcele em ",n.installments," sem juros"]}),g.jsx("p",{children:"TAMANHO"}),g.jsx(Zg,{children:o.map(y=>g.jsx(Jg,{onClick:()=>u(y),disabled:!r.some(v=>v.size===y&&v.quantity>0),$disabled:!r.some(v=>v.size===y&&v.quantity>0),$size:y,$selectedSize:l,children:y},y))}),g.jsx("p",{children:"COR"}),g.jsx(bg,{children:r.filter(y=>y.size===l).map(y=>g.jsxs(ev,{children:[g.jsx(tv,{onClick:()=>s(y.color),disabled:y.quantity===0,$disabled:y.quantity===0,$selectedColor:a,$variantColor:y.color}),y.quantity===0&&g.jsx(nv,{name:"close-outline",$variantColor:y.color})]},y.color))}),g.jsx(rv,{children:d.quantity>1?g.jsxs("p",{children:["Últimas ",d.quantity," unidades disponíveis"]}):d.quantity===1?g.jsx("p",{children:"Última unidade disponível"}):g.jsx("p",{children:"Produto esgotado nesta cor"})}),g.jsx(ov,{children:g.jsx("input",{type:"number",value:h,onChange:y=>m(y.target.value),min:d.quantity===0?0:1,max:d.quantity})}),g.jsx(iv,{onClick:()=>e("/cart"),disabled:d.quantity===0,$disabled:d.quantity===0,children:d.quantity===0?"INDISPONÍVEL":"ADICIONAR AO CARRINHO"})]})]})]})},Qg=I.div`
+`,Vg=()=>g.jsxs(g.Fragment,{children:[g.jsx(Mg,{}),g.jsx(Bg,{})]}),qg=()=>{const e=Pa(),{state:t}=gt(),{prod:n}=t||{},r=n.variants,o=r.map(y=>y.size).filter((y,v,w)=>w.indexOf(y)===v).sort((y,v)=>y-v),i=r.find(y=>y.size===o[0]).color,[l,u]=S.useState(o[0]),[a,s]=S.useState(i),[h,m]=S.useState(1),d=r.find(y=>y.size===l&&y.color===a);return S.useEffect(()=>{m(d.quantity===0?0:1)},[l,a,d.quantity]),g.jsxs(Qg,{children:[g.jsxs(Yg,{children:[g.jsx("img",{src:n.primaryImage,alt:n.altText}),g.jsx("img",{src:n.secondaryImage,alt:n.altText})]}),g.jsxs(Kg,{children:[g.jsxs(Gg,{children:[g.jsx(sn,{to:"/",children:g.jsx("button",{children:"HOME"})}),g.jsx("p",{children:n.name})]}),g.jsxs(Xg,{children:[g.jsx("h3",{children:n.name}),g.jsx("h3",{children:n.price}),g.jsxs("p",{children:["Parcele em ",n.installments," sem juros"]}),g.jsx("p",{children:"TAMANHO"}),g.jsx(Zg,{children:o.map(y=>g.jsx(Jg,{onClick:()=>u(y),disabled:!r.some(v=>v.size===y&&v.quantity>0),$disabled:!r.some(v=>v.size===y&&v.quantity>0),$size:y,$selectedSize:l,children:y},y))}),g.jsx("p",{children:"COR"}),g.jsx(bg,{children:r.filter(y=>y.size===l).map(y=>g.jsxs(ev,{children:[g.jsx(tv,{onClick:()=>s(y.color),disabled:y.quantity===0,$disabled:y.quantity===0,$selectedColor:a,$variantColor:y.color}),y.quantity===0&&g.jsx(nv,{name:"close-outline",$variantColor:y.color})]},y.color))}),g.jsx(rv,{children:d.quantity>1?g.jsxs("p",{children:["Últimas ",d.quantity," unidades disponíveis"]}):d.quantity===1?g.jsx("p",{children:"Última unidade disponível"}):g.jsx("p",{children:"Produto esgotado nesta cor"})}),g.jsxs(ov,{children:[g.jsx("input",{type:"number",value:h,onChange:y=>m(y.target.value),min:d.quantity===0?0:1,max:d.quantity}),g.jsxs(iv,{children:[g.jsx("button",{type:"button",onClick:()=>{const y=d.quantity===0?0:1;m(v=>Math.max(v-1,y))},children:g.jsx("ion-icon",{name:"remove-outline"})}),g.jsx("button",{type:"button",onClick:()=>{m(y=>Math.min(y+1,d.quantity))},children:g.jsx("ion-icon",{name:"add-outline"})})]})]}),g.jsx(lv,{onClick:()=>e("/cart"),disabled:d.quantity===0,$disabled:d.quantity===0,children:d.quantity===0?"INDISPONÍVEL":"ADICIONAR AO CARRINHO"})]})]})]})},Qg=I.div`
   width: 100%;
   padding: 45px 20px 20px 20px;
   display: flex;
@@ -563,17 +563,59 @@ Please change the parent <Route path="${c}"> to <Route path="${c==="/"?"*":`${c}
     border-radius: 15px;
   }
 `,ov=I.form`
+  position: relative;
+/*   display: flex;
+  align-items: center; 
+  width: 100%; */
+
+  /* Hide arrows from input form: Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Hide arrows from input form: Firefox */
+  input[type=number] {
+    appearance: textfield;
+  }
   
   input {
     all: unset;
     border: solid 1px black;
-    padding: 0 10px;
     border-radius: 5px;
     width: 100%;
     height: 40px;
     box-sizing: border-box;
+    text-align: center;
+    position: relative;
   }
-`,iv=I.button`
+`,iv=I.div`
+  position: absolute;
+  top: 50%; 
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  button {
+    all: unset;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  button:first-child {
+    left: 15px; 
+  }
+
+  button:last-child {
+    right: 15px; 
+  }
+`,lv=I.button`
  all: unset;
  cursor: ${e=>e.disabled?"default":"pointer"};
  display: flex;
@@ -584,7 +626,7 @@ Please change the parent <Route path="${c}"> to <Route path="${c==="/"?"*":`${c}
  border-radius: 5px;
  height: 40px;
  box-sizing: border-box;
-`,lv=()=>{const e=Pa();return g.jsxs(uv,{children:[g.jsx("h3",{children:"Estou fazendo, otaros 😊"}),g.jsx("button",{onClick:()=>e("/"),children:"HOME"})]})},uv=I.h1`
+`,uv=()=>{const e=Pa();return g.jsxs(av,{children:[g.jsx("h3",{children:"Estou fazendo, otaros 😊"}),g.jsx("button",{onClick:()=>e("/"),children:"HOME"})]})},av=I.h1`
   /* margin-top: 45px; */
   margin-top: 100px;
   display: flex;
@@ -602,7 +644,7 @@ Please change the parent <Route path="${c}"> to <Route path="${c==="/"?"*":`${c}
     padding: 10px 30px;
     border-radius: 15px;
   }
-`,av=()=>{const e=()=>{window.open("https://wa.me/5521997219895","_blank")};return g.jsx(sv,{onClick:e,children:g.jsx(cv,{name:"logo-whatsapp"})})},sv=I.button`
+`,sv=()=>{const e=()=>{window.open("https://wa.me/5521995057195","_blank")};return g.jsx(cv,{onClick:e,children:g.jsx(fv,{name:"logo-whatsapp"})})},cv=I.button`
   all: unset;
   position: fixed;
   bottom: 20px;
@@ -612,7 +654,7 @@ Please change the parent <Route path="${c}"> to <Route path="${c==="/"?"*":`${c}
   width: 40px;
   height: 40px;
   border-radius: 50%;
-`,cv=I("ion-icon")`
+`,fv=I("ion-icon")`
   z-index: 1000;
   font-size: 25px;
   color: white;
@@ -620,4 +662,4 @@ Please change the parent <Route path="${c}"> to <Route path="${c==="/"?"*":`${c}
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-`,fv=()=>{const e=gt();return S.useEffect(()=>{window.scrollTo(0,0)},[e]),null};function dv(){return g.jsxs(Sg,{basename:"/aia",children:[g.jsx(M0,{}),g.jsx(A0,{}),g.jsx(fv,{}),g.jsxs(Zy,{children:[g.jsx(Mo,{path:"/",element:g.jsx(Vg,{})}),g.jsx(Mo,{path:"/product/:productName",element:g.jsx(qg,{})}),g.jsx(Mo,{path:"/cart",element:g.jsx(lv,{})})]}),g.jsx(K0,{}),g.jsx(av,{})]})}Sd(document.getElementById("root")).render(g.jsx(S.StrictMode,{children:g.jsx(dv,{})}));
+`,dv=()=>{const e=gt();return S.useEffect(()=>{window.scrollTo(0,0)},[e]),null};function pv(){return g.jsxs(Sg,{basename:"/aia",children:[g.jsx(M0,{}),g.jsx(A0,{}),g.jsx(dv,{}),g.jsxs(Zy,{children:[g.jsx(Mo,{path:"/",element:g.jsx(Vg,{})}),g.jsx(Mo,{path:"/product/:productName",element:g.jsx(qg,{})}),g.jsx(Mo,{path:"/cart",element:g.jsx(uv,{})})]}),g.jsx(K0,{}),g.jsx(sv,{})]})}Sd(document.getElementById("root")).render(g.jsx(S.StrictMode,{children:g.jsx(pv,{})}));
