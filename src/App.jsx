@@ -1,9 +1,9 @@
 import GlobalStyles from './GlobalStyles';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
-import MainPage from './components/MainPage';
-import ProductPage from './components/ProductPage';
-import Cart from './components/Cart';
+import MainPage from './pages/MainPage';
+import ProductPage from './pages/ProductPage';
+import Cart from './pages/Cart';
 import WhatsappButton from './components/WhatsappButton';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ScrollTop from './ScrollTop'; 

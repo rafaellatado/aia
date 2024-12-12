@@ -1,6 +1,6 @@
 import Carousel from './Carousel'
 import styled from 'styled-components';
-import { mainImage } from '../Products';
+import { mainImage } from '../../Products';
 
 const SecondSection = () => {
 

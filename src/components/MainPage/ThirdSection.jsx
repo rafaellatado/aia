@@ -1,4 +1,4 @@
-import { moreProducts } from '../Products';
+import { moreProducts } from '../../Products';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 

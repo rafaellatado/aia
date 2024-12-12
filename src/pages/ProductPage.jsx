@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import tinycolor from "tinycolor2";
 
 const ProductPage = () => {
   const navigate = useNavigate();
@@ -287,11 +288,10 @@ const IonIcon = styled('ion-icon')`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); 
-  color: ${props => 
-    props.$variantColor === '#FF0000'
-    ? '#FFFFFF'
-    : '#FF0000'
-  };
+  color: ${props => {
+    const isLight = tinycolor(props.$variantColor).isLight();
+    return isLight ? '#000000' : '#FFFFFF';
+  }};
   font-size: 40px; 
 `
 
@@ -308,9 +308,6 @@ const ProductsAvailableMsg = styled.div`
 
 const StyledForm = styled.form`
   position: relative;
-/*   display: flex;
-  align-items: center; 
-  width: 100%; */
 
   /* Hide arrows from input form: Chrome, Safari, Edge, Opera */
   input::-webkit-outer-spin-button,
@@ -332,7 +329,6 @@ const StyledForm = styled.form`
     height: 40px;
     box-sizing: border-box;
     text-align: center;
-    position: relative;
   }
 `
 
@@ -340,8 +336,6 @@ const FormButtons = styled.div`
   position: absolute;
   top: 50%; 
   width: 100%;
-  display: flex;
-  justify-content: space-between;
 
   button {
     all: unset;

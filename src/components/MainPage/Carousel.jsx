@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import { featuredProducts } from '../Products';
+import { featuredProducts } from '../../Products';
 import { Link } from 'react-router-dom';
 
 const Carousel = () => {
