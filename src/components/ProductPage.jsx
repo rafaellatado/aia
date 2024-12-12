@@ -84,11 +84,12 @@ const ProductPage = () => {
                   >
                     {/* {variant.color} */}
                   </ColorButton>
+                  {variant.quantity === 0 && (
                   <IonIcon 
                     name="close-outline" 
-                    $showIcon={variant.quantity === 0} 
                     $variantColor={variant.color}
                   />
+                )}
                 </ColorButtonContainer>
               ))
             }
@@ -260,7 +261,6 @@ const ColorButton = styled.button`
 const IonIcon = styled('ion-icon')`
   visibility: visible;
   z-index: 1;
-  opacity: ${(props) => props.$showIcon ? '1' : '0'};
   pointer-events: none;
   position: absolute;
   top: 50%;
