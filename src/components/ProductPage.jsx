@@ -112,6 +112,27 @@ const ProductPage = () => {
               min={currentProduct.quantity === 0 ? 0 : 1}
               max={currentProduct.quantity}
             />
+            <FormButtons>
+              <button 
+                type='button'
+                // Math.max returns the greater of two numbers, so the number can't go below 0 or 1, in this case
+                onClick={() => {
+                  const minValue = currentProduct.quantity === 0 ? 0 : 1;
+                  setUserInputQuantity((prev) => Math.max(prev - 1, minValue));
+                }}
+              >
+                <ion-icon name="remove-outline" />
+              </button>
+              <button 
+                type='button'
+                //  Math.min returns the lesser of two numbers, so the number can't go above currentProduct.quantity
+                onClick={() => {
+                  setUserInputQuantity((prev) => Math.min(prev + 1, currentProduct.quantity));
+                }}
+              >
+                <ion-icon name="add-outline" />
+              </button>
+            </FormButtons>
           </StyledForm>
 
           <CartButton
@@ -286,15 +307,59 @@ const ProductsAvailableMsg = styled.div`
 `
 
 const StyledForm = styled.form`
+  position: relative;
+/*   display: flex;
+  align-items: center; 
+  width: 100%; */
+
+  /* Hide arrows from input form: Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Hide arrows from input form: Firefox */
+  input[type=number] {
+    appearance: textfield;
+  }
   
   input {
     all: unset;
     border: solid 1px black;
-    padding: 0 10px;
     border-radius: 5px;
     width: 100%;
     height: 40px;
     box-sizing: border-box;
+    text-align: center;
+    position: relative;
+  }
+`
+
+const FormButtons = styled.div`
+  position: absolute;
+  top: 50%; 
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  button {
+    all: unset;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  button:first-child {
+    left: 15px; 
+  }
+
+  button:last-child {
+    right: 15px; 
   }
 `
 

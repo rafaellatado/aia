@@ -30,13 +30,6 @@ function App() {
 
 export default App
 
-/* const WhatsappContainer = styled.div`
-  background-color: #000000;
-` */
-
 /* 
 - CSS command to make an element's content to fit to the edges of its element (container), and/or vice-versa
-- Whatsapp button redirect command on React. I imagine in the onClick
-- Whatsapp icon gray background
-- Way to load images more quickly
 */

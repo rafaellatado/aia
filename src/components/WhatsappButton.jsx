@@ -3,7 +3,7 @@ import styled from "styled-components";
 const WhatsappButton = () => {
 
   const handleClick = () => {
-    window.open("https://wa.me/5521997219895", "_blank");
+    window.open("https://wa.me/5521995057195", "_blank"); 
   };
 
   return (
