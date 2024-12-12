@@ -21,8 +21,6 @@ const ProductPage = () => {
 
   const [selectedSize, setSelectedSize] = useState(uniqueSizes[0]);
   const [selectedColor, setSelectedColor] = useState(firstColor);
-  /* console.log(selectedSize);
-  console.log(selectedColor); */
   const [userInputQuantity, setUserInputQuantity] = useState(1);
   
   const currentProduct = variants.find(variant => variant.size === selectedSize && variant.color === selectedColor);
@@ -73,21 +71,27 @@ const ProductPage = () => {
           <p>COR</p>
 
           <ColorButtons>
-          {variants
+            {variants
               .filter(variant => variant.size === selectedSize)
               .map(variant => (
-                <ColorButton 
-                  key={variant.color} 
-                  onClick={() => setSelectedColor(variant.color)}
-                  disabled={variant.quantity === 0}
-                  $disabled={variant.quantity === 0}
-                  $selectedColor={selectedColor}
-                  $variantColor={variant.color}
-                >
-                  {/* {variant.color} */}
-                </ColorButton>
+                <ColorButtonContainer key={variant.color}>
+                  <ColorButton 
+                    onClick={() => setSelectedColor(variant.color)}
+                    disabled={variant.quantity === 0}
+                    $disabled={variant.quantity === 0}
+                    $selectedColor={selectedColor}
+                    $variantColor={variant.color}
+                  >
+                    {/* {variant.color} */}
+                  </ColorButton>
+                  <IonIcon 
+                    name="close-outline" 
+                    $showIcon={variant.quantity === 0} 
+                    $variantColor={variant.color}
+                  />
+                </ColorButtonContainer>
               ))
-          }
+            }
           </ColorButtons>
 
           <ProductsAvailableMsg>
@@ -137,7 +141,6 @@ const OuterContainer = styled.div`
   @media (min-width: 1000px) {
     flex-direction: row;
     gap: 50px;
-    /* padding: 45px 70px 20px 70px; */
   }
 `
 
@@ -229,9 +232,16 @@ const ColorButtons = styled.div`
   gap: 10px;
 `
 
+const ColorButtonContainer = styled.div`
+  position: relative;
+`
+
 const ColorButton = styled.button`
   all: unset;
   cursor: ${props => props.disabled ? 'default' : 'pointer'};
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 35px;
   height: 35px;
   border: solid 5px #D9D9D9;
@@ -245,6 +255,23 @@ const ColorButton = styled.button`
     : 'none' 
   };
   opacity: ${props => props.disabled ? '0.5' : '1'};
+`
+
+const IonIcon = styled('ion-icon')`
+  visibility: visible;
+  z-index: 1;
+  opacity: ${(props) => props.$showIcon ? '1' : '0'};
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  color: ${props => 
+    props.$variantColor === '#FF0000'
+    ? '#FFFFFF'
+    : '#FF0000'
+  };
+  font-size: 40px; 
 `
 
 const ProductsAvailableMsg = styled.div`
