@@ -60,10 +60,10 @@ export const featuredProducts = [
 
 export const moreProducts = [
   {
-    id: 1,
+    id: 4,
     primaryImage: `${import.meta.env.BASE_URL}images/moreProducts/1a.jpg`,
     secondaryImage: `${import.meta.env.BASE_URL}images/moreProducts/1b.jpg`,
-    name: 'MOCK NAME 1',
+    name: 'MOCK NAME 4',
     price: 'R$ 270,00',
     installments: '5x de R$ 56,00',
     altText: 'Produto',
@@ -73,14 +73,14 @@ export const moreProducts = [
       { color: '#FF0000', size: 36, quantity: 0 }, 
       { color: '#000000', size: 34, quantity: 2 },
       { color: '#000000', size: 35, quantity: 4 },
-      { color: '#000000', size: 36, quantity: 1 },
+      { color: '#000000', size: 36, quantity: 4 },
     ],
   },
   {
-    id: 2,
+    id: 5,
     primaryImage: `${import.meta.env.BASE_URL}images/moreProducts/2a.jpg`,
     secondaryImage: `${import.meta.env.BASE_URL}images/moreProducts/2b.jpg`,
-    name: 'MOCK NAME 2',
+    name: 'MOCK NAME 5',
     price: 'R$ 350,00',
     installments: '5x de R$ 70,00',
     altText: 'Produto',
@@ -94,10 +94,10 @@ export const moreProducts = [
     ],
   },
   {
-    id: 3,
+    id: 6,
     primaryImage: `${import.meta.env.BASE_URL}images/moreProducts/3a.jpg`,
     secondaryImage: `${import.meta.env.BASE_URL}images/moreProducts/3b.jpg`,
-    name: 'MOCK NAME 3',
+    name: 'MOCK NAME 6',
     price: 'R$ 740,00',
     installments: '5x de R$ 148,00',
     altText: 'Produto',
@@ -111,10 +111,10 @@ export const moreProducts = [
     ],
   },
   {
-    id: 4,
+    id: 7,
     primaryImage: `${import.meta.env.BASE_URL}images/moreProducts/4a.jpg`,
     secondaryImage: `${import.meta.env.BASE_URL}images/moreProducts/4b.jpg`,
-    name: 'MOCK NAME 4',
+    name: 'MOCK NAME 7',
     price: 'R$ 270,00',
     installments: '5x de R$ 56,00',
     altText: 'Produto',
@@ -128,10 +128,10 @@ export const moreProducts = [
     ],
   },
   {
-    id: 5,
+    id: 8,
     primaryImage: `${import.meta.env.BASE_URL}images/moreProducts/5a.jpg`,
     secondaryImage: `${import.meta.env.BASE_URL}images/moreProducts/5b.jpg`,
-    name: 'MOCK NAME 5',
+    name: 'MOCK NAME 8',
     price: 'R$ 270,00',
     installments: '5x de R$ 56,00',
     altText: 'Produto',
@@ -142,10 +142,10 @@ export const moreProducts = [
     ],
   },
   {
-    id: 6,
+    id: 9,
     primaryImage: `${import.meta.env.BASE_URL}images/moreProducts/6a.jpg`,
     secondaryImage: `${import.meta.env.BASE_URL}images/moreProducts/6b.jpg`,
-    name: 'MOCK NAME 6',
+    name: 'MOCK NAME 9',
     price: 'R$ 320,00',
     installments: '5x de R$ 64,00',
     altText: 'Produto',
@@ -159,10 +159,10 @@ export const moreProducts = [
     ],
   },
   {
-    id: 7,
+    id: 10,
     primaryImage: `${import.meta.env.BASE_URL}images/moreProducts/7a.jpg`,
     secondaryImage: `${import.meta.env.BASE_URL}images/moreProducts/7b.jpg`,
-    name: 'MOCK NAME 7',
+    name: 'MOCK NAME 10',
     price: 'R$ 190,00',
     installments: '3x de R$ 63,33',
     altText: 'Produto',
@@ -176,10 +176,10 @@ export const moreProducts = [
     ],
   },
   {
-    id: 8,
+    id: 11,
     primaryImage: `${import.meta.env.BASE_URL}images/moreProducts/8a.jpg`,
     secondaryImage: `${import.meta.env.BASE_URL}images/moreProducts/8b.jpg`,
-    name: 'MOCK NAME 8',
+    name: 'MOCK NAME 11',
     price: 'R$ 450,00',
     installments: '5x de R$ 90,00',
     altText: 'Produto',
@@ -193,10 +193,10 @@ export const moreProducts = [
     ],
   },
   {
-    id: 9,
+    id: 12,
     primaryImage: `${import.meta.env.BASE_URL}images/moreProducts/9a.jpg`,
     secondaryImage: `${import.meta.env.BASE_URL}images/moreProducts/9b.jpg`,
-    name: 'MOCK NAME 9',
+    name: 'MOCK NAME 12',
     price: 'R$ 290,00',
     installments: '4x de R$ 72,50',
     altText: 'Produto',
@@ -210,10 +210,10 @@ export const moreProducts = [
     ],
   },
   {
-    id: 10,
+    id: 13,
     primaryImage: `${import.meta.env.BASE_URL}images/moreProducts/10a.jpg`,
     secondaryImage: `${import.meta.env.BASE_URL}images/moreProducts/10b.jpg`,
-    name: 'MOCK NAME 10',
+    name: 'MOCK NAME 13',
     price: 'R$ 530,00',
     installments: '6x de R$ 88,33',
     altText: 'Produto',
@@ -227,10 +227,10 @@ export const moreProducts = [
     ],
   },
   {
-    id: 11,
+    id: 14,
     primaryImage: `${import.meta.env.BASE_URL}images/moreProducts/11a.jpg`,
     secondaryImage: `${import.meta.env.BASE_URL}images/moreProducts/11b.jpg`,
-    name: 'MOCK NAME 11',
+    name: 'MOCK NAME 14',
     price: 'R$ 410,00',
     installments: '5x de R$ 82,00',
     altText: 'Produto',
@@ -244,10 +244,10 @@ export const moreProducts = [
     ],
   },
   {
-    id: 12,
+    id: 15,
     primaryImage: `${import.meta.env.BASE_URL}images/moreProducts/12a.jpg`,
     secondaryImage: `${import.meta.env.BASE_URL}images/moreProducts/12b.jpg`,
-    name: 'MOCK NAME 12',
+    name: 'MOCK NAME 15',
     price: 'R$ 360,00',
     installments: '4x de R$ 90,00',
     altText: 'Produto',
@@ -261,3 +261,22 @@ export const moreProducts = [
     ],
   },
 ];
+
+/*  
+- Preciso ajeitar o alinhamento em relação a tamanhos de títulos diferentes:
+CALÇA JEANS SKINNY PREMIUM AZUL CLARO
+CAMISA SOCIAL SLIM FIT ALGODÃO BRANCA
+VESTIDO MIDI LISTRADO ALGODÃO FLORAL
+BLAZER AKATSUKI PRETO JERSEY
+ROUPÃO AKATSUKI VERMELHO FLEECE
+BLAZER AZUL CRUZEIRO ALFA
+VIBRAÇÕES BOHEMIAN COM TOQUE MEDIEVAL
+ÓCULOS DYSTOPIANOS NA PEGADA HIPPIE
+MACACÃO LEGGING FITNESS ALTA COMPRESSÃO
+CAPACETA DAFT CUNT OFICIAL
+LASER CYCLOP + ESPADA STAR WARS
+ÓCULOS DE SOL QUADRADO ARMAÇÃO PRATA
+RAY-BAN NEURO LINK TARTARUGA
+CAFÉ DA MANHÃ NA FERRARI ROSA
+PRAIA ESTAMPA TROPICAL AZUL NA SOMBRA
+*/

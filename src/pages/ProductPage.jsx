@@ -23,6 +23,7 @@ const ProductPage = () => {
   const [selectedSize, setSelectedSize] = useState(uniqueSizes[0]);
   const [selectedColor, setSelectedColor] = useState(firstColor);
   const [userInputQuantity, setUserInputQuantity] = useState(1);
+  const [noStockMsg, setNoStockMsg] = useState(false);
   
   const currentProduct = variants.find(variant => variant.size === selectedSize && variant.color === selectedColor);
 
@@ -58,7 +59,10 @@ const ProductPage = () => {
           {uniqueSizes.map(size => 
             <SizeButton 
               key={size}
-              onClick={() => setSelectedSize(size)}
+              onClick={() => {
+                setSelectedSize(size); 
+                setNoStockMsg(false)
+              }}
               disabled={!variants.some(variant => variant.size === size && variant.quantity > 0)}
               $disabled={!variants.some(variant => variant.size === size && variant.quantity > 0)}
               $size={size}
@@ -77,7 +81,10 @@ const ProductPage = () => {
               .map(variant => (
                 <ColorButtonContainer key={variant.color}>
                   <ColorButton 
-                    onClick={() => setSelectedColor(variant.color)}
+                    onClick={() => {
+                      setSelectedColor(variant.color);
+                      setNoStockMsg(false);
+                    }}
                     disabled={variant.quantity === 0}
                     $disabled={variant.quantity === 0}
                     $selectedColor={selectedColor}
@@ -120,6 +127,7 @@ const ProductPage = () => {
                 onClick={() => {
                   const minValue = currentProduct.quantity === 0 ? 0 : 1;
                   setUserInputQuantity((prev) => Math.max(prev - 1, minValue));
+                  setNoStockMsg(false);
                 }}
               >
                 <ion-icon name="remove-outline" />
@@ -128,7 +136,9 @@ const ProductPage = () => {
                 type='button'
                 //  Math.min returns the lesser of two numbers, so the number can't go above currentProduct.quantity
                 onClick={() => {
-                  setUserInputQuantity((prev) => Math.min(prev + 1, currentProduct.quantity));
+                  setUserInputQuantity((prev) => 
+                    Math.min(prev + 1, currentProduct.quantity));
+                  userInputQuantity === currentProduct.quantity && setNoStockMsg(true);
                 }}
               >
                 <ion-icon name="add-outline" />
@@ -147,6 +157,12 @@ const ProductPage = () => {
             }
           </CartButton>
 
+          {noStockMsg &&
+            <StyledNoStock>
+              <p>Quantidade máxima em estoque</p>
+            </StyledNoStock>
+          }
+
         </StyledProductInfo>
       </DesktopRightSide>
     </OuterContainer>
@@ -154,6 +170,20 @@ const ProductPage = () => {
 }
 
 export default ProductPage;
+
+const StyledNoStock = styled.div`
+  background-color: red;
+  height: 30px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    color: white;
+    font-size: 12px;
+  }
+`
 
 const OuterContainer = styled.div`
   width: 100%;
