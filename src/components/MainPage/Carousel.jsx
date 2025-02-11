@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import { featuredProducts } from '../../Products';
 import { Link } from 'react-router-dom';
+import formatCurrency from '../../utils/formatCurrency';
 
 const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -28,7 +29,7 @@ const Carousel = () => {
             <StyledImageContainer>
               <Link 
                 to={`/product/${prod.name}`}
-                state={{prod: prod}}
+                state={{prod: prod}} 
               >
                 <button>
                   <img src={prod.primaryImage} alt={prod.altText} className='primary' />
@@ -43,7 +44,7 @@ const Carousel = () => {
               >
               <button>{prod.name}</button>
               </Link>
-              <p>{prod.price}</p>
+              <p>{formatCurrency(prod.price, 'BRL')}</p>
               <p>{prod.installments}</p>
             </StyledProductInfo>
           </StyledLi>

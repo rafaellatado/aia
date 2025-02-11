@@ -1,13 +1,15 @@
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import tinycolor from "tinycolor2";
+import CartContext from "../contexts/CartContext";
+import formatCurrency from "../utils/formatCurrency";
 
 const ProductPage = () => {
-  const navigate = useNavigate();
+  const { setCartVisibility } = useContext(CartContext);
+  const { cartProducts, setCartProducts } = useContext(CartContext);
   const { state } = useLocation();
   const { prod } = state || {};
   const variants = prod.variants;
@@ -26,6 +28,23 @@ const ProductPage = () => {
   const [noStockMsg, setNoStockMsg] = useState(false);
   
   const currentProduct = variants.find(variant => variant.size === selectedSize && variant.color === selectedColor);
+
+  /* console.log('currentProduct: ', currentProduct); */
+
+  const prodToCart = {
+    productId: prod.id,
+    variantId: currentProduct.id,
+    image: prod.primaryImage,
+    title: prod.name,
+    price: prod.price,
+    size: selectedSize,
+    color: selectedColor,
+    colorName: currentProduct.colorName,
+    quantity: userInputQuantity,
+    inStock: currentProduct.quantity
+  }
+
+  /* console.log('cartProducts: ', cartProducts); */
 
   // Reset quantity to min value when size or color changes
   useEffect(() => {
@@ -50,7 +69,7 @@ const ProductPage = () => {
 
         <StyledProductInfo>
           <h3>{prod.name}</h3>
-          <h3>{prod.price}</h3>
+          <h3>{formatCurrency(prod.price, 'BRL')}</h3>
           <p>Parcele em {prod.installments} sem juros</p>
 
           <p>TAMANHO</p>
@@ -147,7 +166,24 @@ const ProductPage = () => {
           </StyledForm>
 
           <CartButton
-            onClick={() => navigate('/cart')}
+            onClick={() => {
+              setCartVisibility(true);
+
+              {
+                // Checking if the product variant is already in the Cart product array
+                const existentVariant = cartProducts.find(p => p.variantId === currentProduct.id);
+
+                !existentVariant
+                  ? setCartProducts([...cartProducts, prodToCart])
+                  : existentVariant.quantity === userInputQuantity
+                  ? null
+                  : setCartProducts(cartProducts.map(item => 
+                      item.variantId === currentProduct.id
+                        ? {...item, quantity: userInputQuantity}
+                        : item
+                  ))
+              }
+            }}
             disabled={currentProduct.quantity === 0}
             $disabled={currentProduct.quantity === 0}
           >

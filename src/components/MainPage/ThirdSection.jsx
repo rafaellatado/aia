@@ -1,6 +1,7 @@
 import { moreProducts } from '../../Products';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import formatCurrency from '../../utils/formatCurrency';
 
 const ThirdSection = () => {
   return (
@@ -23,7 +24,7 @@ const ThirdSection = () => {
             >
             <button>{prod.name}</button>
             </Link>
-            <p>{prod.price}</p>
+            <p>{formatCurrency(prod.price, 'BRL')}</p>
             <p>{prod.installments}</p>
           </StyledProdInfo>
         </StyledLi>

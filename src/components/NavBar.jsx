@@ -55,7 +55,7 @@ const StyledNavWrapper = styled.nav`
   right: 0;
   height: 45px;
   background-color: #FAF5F0;
-  z-index: 10;
+  z-index: 1;
   button {
     all: unset;
     cursor: pointer;
