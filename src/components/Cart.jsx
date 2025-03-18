@@ -357,7 +357,7 @@ const CheckOutButtonDiv = styled.div`
     color: white;
     background-color: black;
     height: 40px;
-    padding: 0 10px;
+    padding: 0 20px;
     width: 100%;
     margin: 0 15px;
     border-radius: 5px;
